@@ -1,0 +1,87 @@
+<mvc:View controllerName="sap.btp.projectsapui5.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+ 
+		<Page id="_IDGenPage1"
+		showHeader="false"
+		enableScrolling="true"
+		class="sapUiContentPadding"
+		showNavButton="false" >
+
+		<content>
+			<VBox id="_IDGenVBox1">
+				<MessageStrip id="_IDGenMessageStrip1"
+					text="Use this slider to shrink the toolbars and observe their behavior. Note: the icon buttons display text only when in the overflow area."
+					type="Information"
+					showIcon="true">
+				</MessageStrip>
+
+				<Slider id="_IDGenSlider1" value="100" liveChange="onSliderMoved"/>
+			</VBox>
+				<Table
+				id="idProductsTable"
+				items="{/ProductCollection}">
+				<headerToolbar>
+					<OverflowToolbar id="otbSubheader">
+						<ToolbarSpacer id="_IDGenToolbarSpacer2"/>
+						<SearchField ariaLabelledBy="text1" id="maxPrice" liveChange="onFilter">
+							<layoutData><OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData3" maxWidth="300px" shrinkable="true" priority="NeverOverflow"/></layoutData>
+						</SearchField>
+						<Button id="_IDGenButton3" text="Reset" type="Transparent" press="onReset"/>
+						<OverflowToolbarButton id="_IDGenOverflowToolbarButton6" tooltip="Sort" type="Transparent" text="Sort" icon="sap-icon://sort" press="onSort"/>
+						<OverflowToolbarButton id="_IDGenOverflowToolbarButton7" tooltip="Group" type="Transparent" text="Group" icon="sap-icon://group-2" press="onGroup"/>
+						<OverflowToolbarMenuButton id="_IDGenOverflowToolbarMenuButton1" tooltip="Export" type="Transparent" text="Export" buttonMode="Split" icon="sap-icon://share" defaultAction="onDefaultActionAccept" beforeMenuOpen="onBeforeMenuOpen" useDefaultActionOnly="true">
+							<menu>
+								<Menu id="_IDGenMenu1" itemSelected="onMenuAction">
+									<MenuItem id="_IDGenMenuItem1" text="Export as PDF" icon="sap-icon://pdf-attachment" />
+									<MenuItem id="_IDGenMenuItem2" text="Export to Excel" icon="sap-icon://excel-attachment" />
+								</Menu>
+							</menu>
+						</OverflowToolbarMenuButton>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="_IDGenColumn1" width="12em"><Text id="_IDGenText1" text="Product" /></Column>
+					<Column id="_IDGenColumn2" minScreenWidth="Tablet" demandPopin="true"><Text id="_IDGenText2" text="Supplier" /></Column>
+					<Column id="_IDGenColumn3" minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text id="_IDGenText3" text="Dimensions" /></Column>
+					<Column id="_IDGenColumn4" hAlign="End"><Text id="_IDGenText4" text="Price" /></Column>
+				</columns>
+				<items>
+					<ColumnListItem id="_IDGenColumnListItem1">
+						<cells>
+							<ObjectIdentifier id="_IDGenObjectIdentifier1" title="{Name}" text="{ProductId}" />
+							<Text id="_IDGenText5" text="{SupplierName}" />
+							<Text id="_IDGenText6" text="{Width} x {Depth} x {Height} {DimUnit}" />
+							<ObjectNumber id="_IDGenObjectNumber1"
+									number="{
+										parts:[{path:'Price'},{path:'CurrencyCode'}],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+									}"
+									unit="{CurrencyCode}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			</content>
+			<footer>
+			<OverflowToolbar id="otbFooter">
+				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+				<Button id="_IDGenButton1" type="Accept" text="Accept">
+					<layoutData><OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1" priority="NeverOverflow" /></layoutData>
+				</Button>
+				<Button id="_IDGenButton2" type="Reject" text="Reject">
+					<layoutData><OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData2" priority="NeverOverflow" /></layoutData>
+				</Button>
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton1" tooltip="Delete" text="Delete" icon="sap-icon://delete"/>
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton2" tooltip="Edit" text="Edit" icon="sap-icon://edit"/>
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton3" tooltip="Add" text="Add" icon="sap-icon://add"/>
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton4" tooltip="Favorite" text="Favorite" icon="sap-icon://favorite"/>
+				<OverflowToolbarButton id="_IDGenOverflowToolbarButton5" tooltip="Flag" text="Flag" icon="sap-icon://flag"/>
+				<OverflowToolbarToggleButton id="_IDGenOverflowToolbarToggleButton1" tooltip="Toggle" text="Toggle" icon="sap-icon://touch" press="onTogglePress"/>
+
+			</OverflowToolbar>
+		</footer>
+        </Page>
+  
+</mvc:View>
